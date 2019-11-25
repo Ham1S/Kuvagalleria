@@ -7,14 +7,14 @@ if (isset($_POST['login-submit'])) {
     $password = $_POST['pwd'];
 
     if (empty($uname) || empty($password)) {
-        header("Location: ../Kuvagalleria/index.php?error=emptyfields");
+        header("Location: ../login/index.php?error=emptyfields");
         exit();
     }
     else {
         $sql = "SELECT * FROM admin WHERE uidAdmin=?;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../Kuvagalleria/index.php?error=sqlerror");
+            header("Location: ../login/index.php?error=sqlerror");
             exit();
         }
         else {
@@ -25,7 +25,7 @@ if (isset($_POST['login-submit'])) {
             if ($row = mysqli_fetch_assoc($result)) {
                 $pwdCheck = password_verify($password, $row['pwdAdmin']);
                 if ($pwdCheck == false) {
-                    header("Location: ../Kuvagalleria/index.php?error=wrongpwd");
+                    header("Location: ../login/index.php?error=wrongpwd");
                     exit();
                 }
                 else if ($pwdCheck == true) {
@@ -33,11 +33,11 @@ if (isset($_POST['login-submit'])) {
                     $_SESSION['userId'] = $row['idAdmin'];
                     $_SESSION['userUid'] = $row['uidAdmin'];
 
-                    header("Location: ../Kuvagalleria/index.php?login=success");
+                    header("Location: ../login/index.php?login=success");
                     exit();
                 }
             } else {
-                header("Location: ../Kuvagalleria/index.php?error=wrongpwd");
+                header("Location: ../login/index.php?error=wrongpwd");
                 exit();
             }
         }
@@ -45,6 +45,6 @@ if (isset($_POST['login-submit'])) {
 }
 
 else {
-    header("Location: ../Kuvagalleria/login.php");
+    header("Location: ../login/login.php");
     exit();
 }
