@@ -9,11 +9,13 @@
 <body>
 <form action="signup.inc.php" method="post">
         <div class="container">
-            <input type="text" placeholder="Username" name="uname"><br>
+            <input type="text" placeholder="Username" name="uname" autofocus><br>
             <input type="password" placeholder="Password" name="pwd"><br>
             <input type="password" placeholder="Repeat Password" name="pwd-repeat"><br>
             <button type="submit" name="signup-submit">Signup</button>
           </div>
     </form>
+    <br>
+    <a href="../index.php">Home Page</a>
 </body>
 </html>

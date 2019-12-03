@@ -10,14 +10,20 @@
     <title>Kuvagalleria</title>
 </head>
 <body>
-    <a href="login/login.php">login</a>
-    <a href="login/signup.php">signup</a>
-
     <?php
     if (isset($_SESSION['userId'])) {
-        echo '<p class="login-status">You are logged in</p>';
+        echo '<form action="login/logout.inc.php" method="post">
+        <button type="submit" name="logout-submit">Logout</button>
+        <p class="login-status">You are logged in</p>
+        </form>';
     } else {
-        echo '<p class="login-status">You are logged out</p>';
+        echo '<form action="login/login.inc.php" method="post">
+        <button type="submit" name="login-submit">Login</button>
+        </form>
+        <form action="login/signup.inc.php" method="post">
+        <button type="submit" name="signup-submit">signup</button>
+        <p class="login-status">You are logged out</p>
+        </form>';
     }
     ?>
 </body>
