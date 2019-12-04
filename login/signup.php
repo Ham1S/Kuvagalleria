@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>signup</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
 <body>
 <form action="signup.inc.php" method="post">
@@ -16,6 +17,8 @@
           </div>
     </form>
     <br>
-    <a href="../index.php">Home Page</a>
+    <form action="../index.php" method="post">
+                <button type="submit" name="homepage">home</button>
+    </form>
 </body>
 </html>
