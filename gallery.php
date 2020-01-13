@@ -31,14 +31,15 @@ session_start();
                 $result = mysqli_stmt_get_result($stmt);
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<a href="#">
-                    <div style="background-image: url(img/gallery/'.$row["imgFullNameGallery"].');"></div>
+                    echo '<a>
                     <h3>'.$row["titleGallery"].'</h3>
+                    <img src="img/gallery/'.$row["imgFullNameGallery"].'" />
                     <p>'.$row["descGallery"].'</p>
                 </a>';
                 }
             }
             ?>
+            
             </div>
 <?php
 
