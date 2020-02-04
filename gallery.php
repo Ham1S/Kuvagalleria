@@ -18,6 +18,10 @@ session_start();
         <div class="wrapper">
             <h2>Gallery</h2>
 
+            <form action="index.php" method="post">
+                <button type="submit" name="homepage">home</button>
+            </form>
+
             <div class="gallery-container">
             <?php
             include_once 'kuvagalleriadbh.php';
@@ -31,11 +35,14 @@ session_start();
                 $result = mysqli_stmt_get_result($stmt);
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<a>
+                    echo '<form action="gallery-delete.php" method="POST"><a>
                     <h3>'.$row["titleGallery"].'</h3>
                     <img src="img/gallery/'.$row["imgFullNameGallery"].'" />
+                    <input type="hidden" name="fileName" value="'.$row["imgFullNameGallery"].'">
+                    <input type="hidden" name="fileId" value="'.$row["idGallery"].'">
                     <p>'.$row["descGallery"].'</p>
-                </a>';
+                    <button type="submit" name="delet">delet</button>
+                </a></form>';
                 }
             }
             ?>
@@ -55,9 +62,6 @@ if (isset($_SESSION['userId'])) {
 
 }
 ?>
-    <form action="index.php" method="post">
-                <button type="submit" name="homepage">home</button>
-    </form>
     </div>
     </section>
 
