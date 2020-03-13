@@ -21,17 +21,17 @@
             if (isset($_SESSION['userId'])) {
                 echo '                
                 <form action="login/logout.inc.php" method="post">
-                <button type="submit" name="logout-submit">Logout</button>
                 <p class="login-status">You are logged in</p>
+                <button type="submit" name="logout-submit">Logout</button>
                 </form>';
             } else {
                 echo '<form action="login/login.inc.php" method="post">
+                <p class="login-status">You are logged out</p>
                 <button type="submit" name="login-submit">Login</button>
                 </form>
 
                 <form action="login/signup.inc.php" method="post">
                 <button type="submit" name="signup-submit">signup</button>
-                <p class="login-status">You are logged out</p>
                 </form>';
             }
             ?>

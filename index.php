@@ -11,7 +11,8 @@
     <title>Kuvagalleria</title>
 </head>
 <body>
-<form action="gallery.php" method="post">
+                <br>
+                <form action="gallery.php" method="post">
                 <button type="submit">Gallery</button>
                 </form>
 </body>

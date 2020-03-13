@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit-image'])) {
 
     $newFileName = $_POST['filename'];
     if (empty($newFileName)) {
@@ -22,11 +22,11 @@ if (isset($_POST['submit'])) {
     $fileExt = explode(".", $fileName);
     $fileActualExt = strtolower(end($fileExt));
 
-    $allowed = array("jpg", "jpeg", "png");
+    $allowed = array("jpg", "jpeg", "png", "mp4");
 
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0) {
-            if ($fileSize < 200000000) {
+            if ($fileSize < 99999999999999) {
                 $imageFullName = $newFileName . "." . uniqid("", true) . "." . $fileActualExt;
                 $fileDestination = "img/gallery/" . $imageFullName;
 
