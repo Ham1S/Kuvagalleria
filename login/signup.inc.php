@@ -23,7 +23,7 @@ if (isset($_POST['signup-submit'])) {
         exit();
     }
     else {
-        $sql = "SELECT uidAdmin FROM admin WHERE uidAdmin=?";
+        $sql = "SELECT uidUser FROM users WHERE uidUser=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../login/signup.php?error=sqlerror");
@@ -39,7 +39,7 @@ if (isset($_POST['signup-submit'])) {
                     exit();
                 }
                 else {
-                    $sql = "INSERT INTO admin (uidAdmin, pwdAdmin) VALUES (?, ?)";    
+                    $sql = "INSERT INTO users (uidUser, pwdUser) VALUES (?, ?)";    
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
                         header("Location: ../login/signup.php?error=sqlerror");

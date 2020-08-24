@@ -30,7 +30,7 @@ session_start();
             <?php
             include_once 'kuvagalleriadbh.php';
 
-            $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC";
+            $sql = "SELECT * FROM imgggallery ORDER BY orderGallery DESC";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 echo "SQL statement failed!";

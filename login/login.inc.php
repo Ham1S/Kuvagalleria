@@ -11,7 +11,7 @@ if (isset($_POST['login-submit'])) {
         exit();
     }
     else {
-        $sql = "SELECT * FROM admin WHERE uidAdmin=?;";
+        $sql = "SELECT * FROM users WHERE uidUser=?;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../login/login.php?error=sqlerror");
@@ -23,15 +23,15 @@ if (isset($_POST['login-submit'])) {
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             if ($row = mysqli_fetch_assoc($result)) {
-                $pwdCheck = password_verify($password, $row['pwdAdmin']);
+                $pwdCheck = password_verify($password, $row['pwdUser']);
                 if ($pwdCheck == false) {
                     header("Location: ../login/login.php?error=wrongpwd");
                     exit();
                 }
                 else if ($pwdCheck == true) {
                     session_start();
-                    $_SESSION['userId'] = $row['idAdmin'];
-                    $_SESSION['userUid'] = $row['uidAdmin'];
+                    $_SESSION['userId'] = $row['idUser'];
+                    $_SESSION['userUid'] = $row['uidUser'];
 
                     header("Location: ../index.php?login=success");
                     exit();

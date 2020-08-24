@@ -15,7 +15,7 @@
     $final_path = $real_path."\\img\\gallery\\". $fileNames;
     //echo "Final path " .$final_path . "<br>";
 
-    $sql = "DELETE FROM gallery WHERE idGallery=$imgId";
+    $sql = "DELETE FROM imgggallery WHERE idGallery=$imgId";
 
     unlink($final_path);
 
