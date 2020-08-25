@@ -1,4 +1,7 @@
 <?php
+require 'kuvagalleriadbh.php';
+$imageTitle = $_POST['filetitle'];
+$imageDesc = $_POST['filedesc'];
 
 if (isset($_POST['gallery-edit'])) {
     if (empty('filetitle' || 'filedesc')) {

@@ -4,7 +4,7 @@ if (isset($_POST['submit-image'])) {
 
     $newFileName = $_POST['filename'];
     if (empty($newFileName)) {
-        $newFileName = "imgggallery";
+        $newFileName = "imggallery";
     } else {
         $newFileName = strtolower(str_replace(" ", "-", $newFileName));
     }
@@ -35,7 +35,7 @@ if (isset($_POST['submit-image'])) {
                 if (empty($imageTitle) || empty($imageDesc)) {
                     header("Location: gallery.php?upload=empty");
                 } else {
-                    $sql = "SELECT * FROM imgggallery;";
+                    $sql = "SELECT * FROM imggallery;";
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
                         echo "SQL statement failed!";
@@ -45,7 +45,7 @@ if (isset($_POST['submit-image'])) {
                         $rowCount = mysqli_num_rows($result);
                         $setImageOrder = $rowCount + 1;
 
-                        $sql = "INSERT INTO imgggallery (titleGallery, descGallery, imgFullNameGallery, orderGallery) VALUES (?, ?, ?, ?);";
+                        $sql = "INSERT INTO imggallery (titleGallery, descGallery, imgFullNameGallery, orderGallery) VALUES (?, ?, ?, ?);";
                         if (!mysqli_stmt_prepare($stmt, $sql)) {
                             echo "SQL statement failed!";
                         } else {
